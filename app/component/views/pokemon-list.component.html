@@ -1,0 +1,9 @@
+<h1>Pokemon list</h1>
+<ul>
+	<li *ngFor="let pokemon of pokemons">
+		<a href="#">
+			<img src="http://pokeapi.co/media/sprites/pokemon/{{getIdFromUrl(pokemon.url)}}.png" alt="">
+			<label for="">{{pokemon.name}}</label>
+		</a>
+	</li>
+</ul>
