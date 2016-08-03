@@ -1,0 +1,27 @@
+{
+  "name": "pokedex",
+  "description": "A all generations Pokedex",
+  "main": "index.html",
+  "authors": [
+    "Luis Jovel"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "Angular",
+    "2",
+    "TypeScript",
+    "Pokedex",
+    "Pokemon"
+  ],
+  "homepage": "https://github.com/Luis-Jovel/pokedex",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

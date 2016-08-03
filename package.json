@@ -1,7 +1,7 @@
 {
-  "name": "angular2-quickstart",
+  "name": "Pokedex",
   "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "A Pokedex for all the generations of pokemons",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "docker-build": "docker build -t ng2-quickstart .",

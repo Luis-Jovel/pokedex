@@ -1,0 +1,7 @@
+<div *ngIf="generations">
+	<ul>
+		<li *ngFor="let generation of generations">
+			<a [routerLink]="['', generation.name]" >{{generation.name}}</a>
+		</li>
+	</ul>
+</div>

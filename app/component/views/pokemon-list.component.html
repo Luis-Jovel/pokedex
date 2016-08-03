@@ -1,9 +1,10 @@
 <h1>Pokemon list</h1>
-<ul>
-	<li *ngFor="let pokemon of pokemons">
-		<a href="#">
-			<img src="http://pokeapi.co/media/sprites/pokemon/{{getIdFromUrl(pokemon.url)}}.png" alt="">
-			<label for="">{{pokemon.name}}</label>
+<span *ngIf='loading'>Loading...</span>
+<div>
+	<div *ngFor="let pokemon of pokemons" class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+		<a [routerLink]="['/pokemon', pokemon.id]">
+			<img src="http://pokeapi.co/media/sprites/pokemon/{{pokemon.id}}.png" alt="">
+			<span>{{pokemon.name}}</span>
 		</a>
-	</li>
-</ul>
+	</div>
+</div>

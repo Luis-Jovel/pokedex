@@ -1,0 +1,11 @@
+<div *ngIf="evolution_chain" class="row">
+	<div *ngIf="evolution_chain.length > 1">
+		<div *ngFor="let pokemon of evolution_chain" class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+			<img src="http://pokeapi.co/media/sprites/pokemon/{{pokemon.id}}.png" alt="">
+			<span>{{pokemon.name}}</span>
+		</div>
+	</div>
+	<div *ngIf="evolution_chain.length <= 1">
+		<div class="bg-info">No Evolutions</div>
+	</div>
+</div>
