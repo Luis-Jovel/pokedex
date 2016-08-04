@@ -1,0 +1,171 @@
+//variables
+yellow 	= #ffcb04
+blue 	= #3468b0
+green 	= #7fad71
+red 	= #cd3939
+purple 	= #634f88
+yellow 	= #f6cd31
+blue2 	= #8bacd5
+green2 	= #107b6a
+brown 	= #5a3918
+
+//fonts 
+@font-face
+    font-family PokemonFont
+    src url('../fonts/pokemon_solid.ttf')
+    font-weight 400
+
+@font-face
+    font-family Munro
+    src url('../fonts/munro.ttf')
+    font-weight normal
+
+//mixins
+style-gen(color)
+	background-color color
+	border-radius 4px
+	border-bottom 4px solid darken(color, 25%)
+	border-top 1px solid lighten(color, 20%)
+	&:hover
+		background-color darken(color, 25%)
+	&:active
+		background-color darken(color, 50%)
+		border-bottom 4px solid darken(color, 50%)
+		border-top 1px solid darken(color, 25%)
+	
+//styles
+body
+	background: green url('http://wallpoper.com/images/00/38/40/79/pokemon-clouds_00384079.png') 0 0 no-repeat;    
+	// background-size 100%
+
+#loading
+	z-index 9999
+
+.pokedex
+	color yellow
+	font-family PokemonFont
+	font-size 60px
+	text-shadow: -8px 1px blue, 3px -3px blue
+
+.sprite
+	image-rendering optimizeSpeed             /* STOP SMOOTHING, GIVE ME SPEED  */
+	image-rendering -moz-crisp-edges          /* Firefox                        */
+	image-rendering -o-crisp-edges            /* Opera                          */
+	image-rendering -webkit-optimize-contrast /* Chrome (and eventually Safari) */
+	image-rendering pixelated /* Chrome */
+	image-rendering optimize-contrast         /* CSS3 Proposed                  */
+	-ms-interpolation-mode nearest-neighbor   /* IE8+                           */
+
+.pokemon-list
+	img
+		width 100%
+
+span.pokemon-id
+	background-color blue
+	border-radius 3px 0 3px 0
+	color #fff
+	font-family PokemonFont
+	left -1px
+	letter-spacing 5px
+	padding 10px
+	position absolute
+	top -1px
+
+.card
+	background-color #fff
+	border 1px solid #eee
+	border-radius 3px
+	box-shadow 0 10px 8px 0 rgba(0,0,0,0.2)
+	display block
+	position relative
+		
+.pokemon-container
+	padding 10px !important
+	a.card
+		text-align center
+		transition 0.3s		
+		img
+			border-bottom 1px solid #eee
+		label
+			color #000
+			cursor pointer
+			font-size 16px
+			padding 7px 0
+			text-transform capitalize
+		&:hover
+			box-shadow 0 18px 16px 0 rgba(0,0,0,0.2)
+
+.generations-list
+	margin 25px 0
+	.generation-container
+		font-weight bold
+		font-size 17px
+		margin-top 10px
+		padding 10px
+		text-align center
+		text-transform uppercase
+		a
+			color #fff
+			display block
+			padding 10px
+			&:hover
+				text-decoration none				
+	.generation-i
+		style-gen(red)
+	
+	.generation-ii
+		style-gen(purple)
+	
+	.generation-iii
+		style-gen(yellow)
+	
+	.generation-iv
+		style-gen(blue2)
+		
+	.generation-v
+		style-gen(green2)
+		
+	.generation-vi
+		style-gen(brown)
+		
+.pokemon-sprites
+	position relative
+	margin 0 auto
+	width 50%
+	#platform
+		bottom 70px
+		position absolute
+		width 100%
+		z-index -1
+	#front	
+		margin 0 auto
+		width 100%
+		z-index 1
+	
+#panel
+	#panel-top, #panel-middle, #panel-bottom
+		img
+			width 100%
+	#panel-middle
+		position relative
+		img
+			height 100%
+			left 0
+			position absolute
+			top 0
+			z-index -1
+		p
+			margin 0
+			padding 10px 25px
+			z-index 1
+
+.pokemon-details
+	font-family Munro
+	font-size 20px
+	letter-spacing 4px
+	margin-top 140px
+
+.details-card
+	background-color #fff
+	border 3px solid #000
+	text-transform capitalize

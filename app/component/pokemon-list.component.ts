@@ -7,19 +7,7 @@ import { PokemonGenerationsComponent } from './pokemon-generations.component';
 	selector: 'pokemon-list',
 	templateUrl: 'app/component/views/pokemon-list.component.html',
 	directives: [PokemonGenerationsComponent],
-	providers: [PokemonService],
-	styles: [`
-	img {
-		width: 100%;
-		image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
-	    image-rendering: -moz-crisp-edges;          /* Firefox                        */
-	    image-rendering: -o-crisp-edges;            /* Opera                          */
-	    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
-	    image-rendering: pixelated; /* Chrome */
-	    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
-	    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
-	}
-	`]
+	providers: [PokemonService]
 })
 
 export class PokemonListComponent implements OnInit{
@@ -33,6 +21,7 @@ export class PokemonListComponent implements OnInit{
 		private router : Router) {
 		router.events.subscribe((event : Event) => {
 			if(event instanceof NavigationEnd && this.generation){
+				this.loading = true;
 				this.getPokemons(this.generation);
 			}
 		});

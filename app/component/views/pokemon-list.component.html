@@ -1,10 +1,16 @@
-<h1>Pokemon list</h1>
-<span *ngIf='loading'>Loading...</span>
-<div>
-	<div *ngFor="let pokemon of pokemons" class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-		<a [routerLink]="['/pokemon', pokemon.id]">
-			<img src="http://pokeapi.co/media/sprites/pokemon/{{pokemon.id}}.png" alt="">
-			<span>{{pokemon.name}}</span>
+<div *ngIf='loading' id="loading">
+	<div class="pokeball" id="normal"></div>
+	<div class="pokeball" id="great"></div>
+	<div class="pokeball" id="ultra"></div>
+	<div class="pokeball" id="master"></div>
+	<div class="pokeball" id="safari"></div>
+</div>
+<div class="pokemon-list">
+	<div *ngFor="let pokemon of pokemons" class="col-lg-3 col-md-3 col-sm-4 col-xs-6 pokemon-container">
+		<a [routerLink]="['/pokemon', pokemon.id]" class="card">
+			<span class='pokemon-id'>#{{pokemon.id}}</span>
+			<img class="sprite" src="http://pokeapi.co/media/sprites/pokemon/{{pokemon.id}}.png" alt="">
+			<label>{{pokemon.name}}</label>
 		</a>
 	</div>
 </div>

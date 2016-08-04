@@ -1,7 +1,66 @@
-<div *ngIf="pokemon" class="row">
-	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+<div *ngIf='loading_pokemon || loading_species' id="loading">
+	<div class="pokeball" id="normal"></div>
+	<div class="pokeball" id="great"></div>
+	<div class="pokeball" id="ultra"></div>
+	<div class="pokeball" id="master"></div>
+	<div class="pokeball" id="safari"></div>
+</div>
+
+<!-- <div class="row pokemon-details">
+	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 details-card">
+		<span>#151</span>
+		<label>bulbasaur</label>
+		<p>Types:</p>
+		<ul>
+			<li>
+				grass
+			</li>
+			<li>
+				poison
+			</li>
+		</ul>
+		<div>
+			<div>
+				<label>hp</label>
+				<span>33</span>
+			</div>
+			<div>
+				<label>defense</label>
+				<span>44</span>
+			</div>
+			<div>
+				<label>attack</label>
+				<span>22</span>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+		<div class="pokemon-sprites">
+			<img id="front" class="sprite" src="http://pokeapi.co/media/sprites/pokemon/1.png" alt="front">
+			<img id="platform" class="sprite" src="assets/img/fight-platform.png" alt="">
+		</div>
+		<div id="panel">
+			<div id="panel-top">
+				<img class="sprite" src="assets/img/panel-top.png" alt="">
+			</div>
+			<div id="panel-middle">
+				<img class="sprite" src="assets/img/panel-middle.png" alt="">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem doloribus optio quisquam, eos rerum amet unde quo blanditiis vel, reiciendis accusamus nostrum hic distinctio dolores? Dolorem quibusdam rem rerum quod
+				</p>
+			</div>
+			<div id="panel-bottom">
+				<img class="sprite" src="assets/img/panel-bottom.png" alt="">	
+			</div>
+		</div>
+	</div>
+</div> -->
+
+<div *ngIf="pokemon" class="row pokemon-details">
+	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 details-card">
 		<span>#{{pokemon.id}}</span>
 		<label>{{pokemon.name}}</label>
+		<p>Types:</p>
 		<ul>
 			<li *ngFor="let type of pokemon.types">
 				{{type.type.name}}
@@ -9,18 +68,31 @@
 		</ul>
 		<div>
 			<div *ngFor="let stat of pokemon.stats">
-				<label>{{stat.stat.name}}</label>
+				<label>{{stat.stat.name}}:</label>
 				<span>{{stat.base_stat}}</span>
 			</div>
 		</div>
 	</div>
-	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-		<div>
-			<img src="{{pokemon.sprites.front_default}}" alt="front">
-			<img src="{{pokemon.sprites.back_default}}" alt="">
+	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+		<div class="pokemon-sprites">
+			<img id="front" class="sprite" src="{{pokemon.sprites.front_default}}" alt="front">
+			<img id="platform" class="sprite" src="assets/img/fight-platform.png" alt="">
+			<!-- <img src="{{pokemon.sprites.back_default}}" alt=""> -->
 		</div>
-		<div *ngIf="species">
-			<p>{{species.flavor_text_entries[1].flavor_text}}</p>
+		<div *ngIf="loading_species">
+			Loading details...
+		</div>
+		<div id="panel" *ngIf="species">
+			<div id="panel-top">
+				<img class="sprite" src="assets/img/panel-top.png" alt="">
+			</div>
+			<div id="panel-middle">
+				<img class="sprite" src="assets/img/panel-middle.png" alt="">
+				<p>Wild {{pokemon.name}} appeared!</p><p>{{species.flavor_text_entries[1].flavor_text}}</p>
+			</div>
+			<div id="panel-bottom">
+				<img class="sprite" src="assets/img/panel-bottom.png" alt="">	
+			</div>
 		</div>
 	</div>
 </div>

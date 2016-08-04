@@ -1,7 +1,5 @@
-<div *ngIf="generations">
-	<ul>
-		<li *ngFor="let generation of generations">
-			<a [routerLink]="['', generation.name]" >{{generation.name}}</a>
-		</li>
-	</ul>
+<div *ngIf="generations" class="generations-list">
+	<div *ngFor="let generation of generations" class="col-lg-2 col-md-2 col-sm-6 col-xs-6 generation-container">
+		<a [routerLink]="['', generation.id]" class="{{generation.id}}">{{generation.name}}</a>
+	</div>
 </div>

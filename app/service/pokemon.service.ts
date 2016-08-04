@@ -12,7 +12,11 @@ export class PokemonService {
 	}
 	getPokemonGenerations() : Observable<any> {
 		return this.http.get('http://pokeapi.co/api/v2/generation')
-			.map((res: Response) => res.json().results)
+			.map((res: Response) => _.map(res.json().results, ((gen : any) => {
+				gen.id = gen.name;
+				gen.name = gen.name.replace("-"," ");
+				return gen;
+			})))
 			.catch(this.handleError);
 			
 	}
@@ -45,6 +49,7 @@ export class PokemonService {
 			.map((res : Response) => res.json())
 			.catch(this.handleError);
 	}
+	
 	getEvolutionChain(url : string) : Observable<any> {
 		return this.http.get(url)
 			.map((res: Response) => {
