@@ -1,11 +1,17 @@
 <div *ngIf="loading_evolution">
 	Loading Evolutions...
 </div>
-<div *ngIf="evolution_chain" class="row">
+<div *ngIf="evolution_chain" class="row evolutions-list">
+	<h2 class="pokefont">Evolution Chain!</h2>
 	<div *ngIf="evolution_chain.length > 1">
-		<div *ngFor="let pokemon of evolution_chain" class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-			<img src="http://pokeapi.co/media/sprites/pokemon/{{pokemon.id}}.png" alt="">
-			<span>{{pokemon.name}}</span>
+		<div *ngFor="let pokemon of evolution_chain; let last = last" class="col-lg-3 col-md-3 col-sm-4 col-xs-6 pokemon-container">
+			<a [routerLink]="['/pokemon', pokemon.id]" class="card grow">
+				<span class="pokemon-id">#{{pokemon.id}}</span>
+				<img class="sprite" src="http://pokeapi.co/media/sprites/pokemon/{{pokemon.id}}.png" alt="">
+				<label>{{pokemon.name}}</label>
+				<label *ngIf="!last">evolves to &#8594;</label>
+				<label *ngIf="last">final form!</label>				
+			</a>
 		</div>
 	</div>
 	<div *ngIf="evolution_chain.length <= 1">

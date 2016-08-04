@@ -21,17 +21,18 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 		private route : ActivatedRoute,
 		private router : Router) {}
 
-	ngOnInit() {
-		this.loading_pokemon = true;
-		this.loading_species = true;
+	ngOnInit() {		
 		this.sub = this.route.params.subscribe(params => {
 			this.id = +params['id'];
-			if(this.id < 1 || isNaN(+params['id'])) {
+			if(this.id < 1 || isNaN(+params['id']))
 				this.router.navigate(['/']);
+			else{
+				this.loading_pokemon = true;
+				this.loading_species = true;
+				this.getPokemon(this.id);
+				this.getPokemonSpecies(this.id);
 			}
 		});
-		this.getPokemon(this.id);
-		this.getPokemonSpecies(this.id);
 	}
 
 	ngOnDestroy() {

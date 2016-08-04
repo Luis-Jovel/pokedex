@@ -1,6 +1,6 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import { PokemonService } from '../service/pokemon.service';
-import { Router, ActivatedRoute, Event, NavigationStart , NavigationEnd }       from '@angular/router';
+import { Router, ActivatedRoute }       from '@angular/router';
 import { PokemonGenerationsComponent } from './pokemon-generations.component';
 
 @Component({
@@ -19,19 +19,13 @@ export class PokemonListComponent implements OnInit{
 	constructor(private pokemonService: PokemonService,
 		private route : ActivatedRoute,
 		private router : Router) {
-		router.events.subscribe((event : Event) => {
-			if(event instanceof NavigationEnd && this.generation){
-				this.loading = true;
-				this.getPokemons(this.generation);
-			}
-		});
 	}
 	ngOnInit() {
-		this.loading = true;
 		this.sub = this.route.params.subscribe(params => {
 			this.generation = params["generation"] ? params["generation"] : "generation-i";
+			this.loading = true;
+			this.getPokemons(this.generation);
 		});
-		this.getPokemons(this.generation);
 	}
 	ngOnDestroy() {
 		this.sub.unsubscribe();

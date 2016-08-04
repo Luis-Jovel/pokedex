@@ -6,7 +6,10 @@ import './rxjs-extensions';
 @Component({
     selector: 'my-app',
     template: `
-    	<h1 class='pokedex'>PokéDex!</h1>
+    	<a [routerLink]="['/']" class='pokedex pokefont'>
+    		PokéDex!
+    	</a>
+    	<p class='developed-by'>Developed by <a target='_blank' href='http://luisjovel.portfoliobox.net'>Luis Jovel</a></p>
     	<pokemon-generations></pokemon-generations>
     	<router-outlet></router-outlet>
     `,

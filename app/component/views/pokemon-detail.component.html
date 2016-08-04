@@ -6,56 +6,6 @@
 	<div class="pokeball" id="safari"></div>
 </div>
 
-<!-- <div class="row pokemon-details">
-	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 details-card">
-		<span>#151</span>
-		<label>bulbasaur</label>
-		<p>Types:</p>
-		<ul>
-			<li>
-				grass
-			</li>
-			<li>
-				poison
-			</li>
-		</ul>
-		<div>
-			<div>
-				<label>hp</label>
-				<span>33</span>
-			</div>
-			<div>
-				<label>defense</label>
-				<span>44</span>
-			</div>
-			<div>
-				<label>attack</label>
-				<span>22</span>
-			</div>
-		</div>
-	</div>
-	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-		<div class="pokemon-sprites">
-			<img id="front" class="sprite" src="http://pokeapi.co/media/sprites/pokemon/1.png" alt="front">
-			<img id="platform" class="sprite" src="assets/img/fight-platform.png" alt="">
-		</div>
-		<div id="panel">
-			<div id="panel-top">
-				<img class="sprite" src="assets/img/panel-top.png" alt="">
-			</div>
-			<div id="panel-middle">
-				<img class="sprite" src="assets/img/panel-middle.png" alt="">
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem doloribus optio quisquam, eos rerum amet unde quo blanditiis vel, reiciendis accusamus nostrum hic distinctio dolores? Dolorem quibusdam rem rerum quod
-				</p>
-			</div>
-			<div id="panel-bottom">
-				<img class="sprite" src="assets/img/panel-bottom.png" alt="">	
-			</div>
-		</div>
-	</div>
-</div> -->
-
 <div *ngIf="pokemon" class="row pokemon-details">
 	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 details-card">
 		<span>#{{pokemon.id}}</span>
@@ -75,7 +25,7 @@
 	</div>
 	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 		<div class="pokemon-sprites">
-			<img id="front" class="sprite" src="{{pokemon.sprites.front_default}}" alt="front">
+			<img id="front" class="sprite grow" src="{{pokemon.sprites.front_default}}" alt="front">
 			<img id="platform" class="sprite" src="assets/img/fight-platform.png" alt="">
 			<!-- <img src="{{pokemon.sprites.back_default}}" alt=""> -->
 		</div>
