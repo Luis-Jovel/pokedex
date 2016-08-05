@@ -1,1 +1,1 @@
-web: ./node_modules/.bin/tsc && node app.js,
+web: node app.js,
