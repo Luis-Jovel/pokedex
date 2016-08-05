@@ -47,7 +47,9 @@ app.use(function(err, req, res, next) {
 
 var server = http.createServer(app);
 
-server.listen(port);
+server.listen(port, function () {
+  console.log('Listening on port' + port);
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
