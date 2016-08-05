@@ -20,7 +20,7 @@ var PokemonService = (function () {
         util = new utilities_1.Utilities();
     }
     PokemonService.prototype.getPokemonGenerations = function () {
-        return this.http.get('http://pokeapi.co/api/v2/generation')
+        return this.http.get('https://pokeapi.co/api/v2/generation')
             .map(function (res) { return _.map(res.json().results, (function (gen) {
             gen.id = gen.name;
             gen.name = gen.name.replace("-", " ");
@@ -29,7 +29,7 @@ var PokemonService = (function () {
             .catch(this.handleError);
     };
     PokemonService.prototype.getPokemons = function (generation) {
-        return this.http.get('http://pokeapi.co/api/v2/generation/' + generation)
+        return this.http.get('https://pokeapi.co/api/v2/generation/' + generation)
             .map(function (res) {
             var pokemons = res.json().pokemon_species;
             pokemons.forEach(function (pokemon) {
@@ -40,7 +40,7 @@ var PokemonService = (function () {
             .catch(this.handleError);
     };
     PokemonService.prototype.getPokemon = function (id) {
-        return this.http.get('http://pokeapi.co/api/v2/pokemon/' + id)
+        return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id)
             .map(function (res) {
             var pokemon = res.json();
             pokemon.stats = _.sortBy(pokemon.stats, "stat.name");
@@ -53,7 +53,7 @@ var PokemonService = (function () {
             .catch(this.handleError);
     };
     PokemonService.prototype.getPokemonSpecies = function (id) {
-        return this.http.get('http://pokeapi.co/api/v2/pokemon-species/' + id)
+        return this.http.get('https://pokeapi.co/api/v2/pokemon-species/' + id)
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };

@@ -11,7 +11,7 @@ export class PokemonService {
 		util = new Utilities()
 	}
 	getPokemonGenerations() : Observable<any> {
-		return this.http.get('http://pokeapi.co/api/v2/generation')
+		return this.http.get('https://pokeapi.co/api/v2/generation')
 			.map((res: Response) => _.map(res.json().results, ((gen : any) => {
 				gen.id = gen.name;
 				gen.name = gen.name.replace("-"," ");
@@ -21,7 +21,7 @@ export class PokemonService {
 			
 	}
 	getPokemons(generation : string): Observable<any> {
-		return this.http.get('http://pokeapi.co/api/v2/generation/' + generation)
+		return this.http.get('https://pokeapi.co/api/v2/generation/' + generation)
 			.map((res: Response) => {
 				let pokemons: any = res.json().pokemon_species;
 				pokemons.forEach((pokemon : any) => {
@@ -32,7 +32,7 @@ export class PokemonService {
 			.catch(this.handleError);
 	}
 	getPokemon(id : number): Observable<any> {
-		return this.http.get('http://pokeapi.co/api/v2/pokemon/' + id)
+		return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id)
 			.map((res : Response) => {
 				let pokemon = res.json();
 				pokemon.stats = _.sortBy(pokemon.stats, "stat.name");
@@ -45,7 +45,7 @@ export class PokemonService {
 			.catch(this.handleError);
 	}
 	getPokemonSpecies(id : number) : Observable<any> {
-		return this.http.get('http://pokeapi.co/api/v2/pokemon-species/' + id)
+		return this.http.get('https://pokeapi.co/api/v2/pokemon-species/' + id)
 			.map((res : Response) => res.json())
 			.catch(this.handleError);
 	}
