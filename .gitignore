@@ -1,7 +1,6 @@
 .idea
 typings/**
 node_modules
-bower_components
 jspm_packages
 link-checker-results.txt
 **/*npm-debug.log.*
@@ -9,7 +8,6 @@ e2e/**/*.js
 e2e/**/*.js.map
 _test-output
 _temp
-
 !karma*.js
 !protractor*.js
 !systemjs.config.js
