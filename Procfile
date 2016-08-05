@@ -1,1 +1,1 @@
-web: node app.js
+web: ./node_modules/.bin/tsc && ./node_modules/.bin/concurrently "./node_modules/.bin/tsc -w" "node ./app.js",
