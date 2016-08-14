@@ -8,16 +8,16 @@ yellow 	= #f6cd31
 blue2 	= #8bacd5
 green2 	= #107b6a
 brown 	= #5a3918
-
-//fonts 
+//fonts
+//local urls needs to be absoulte due to bundle
 @font-face
     font-family PokemonFont
-    src url('../fonts/pokemon_solid.ttf')
+    src url('../assets/fonts/pokemon_solid.ttf')
     font-weight 400
 
 @font-face
     font-family Munro
-    src url('../fonts/munro.ttf')
+    src url('../assets/fonts/munro.ttf')
     font-weight normal
 
 //mixins
@@ -32,7 +32,6 @@ style-gen(color)
 		background-color darken(color, 50%)
 		border-bottom 4px solid darken(color, 50%)
 		border-top 1px solid darken(color, 25%)
-	
 //styles
 body
 	background: green url('http://wallpoper.com/images/00/38/40/79/pokemon-clouds_00384079.png') 0 0 no-repeat;    
