@@ -1,5 +1,1 @@
-<div *ngIf="generations" class="generations-list">
-	<div *ngFor="let generation of generations" class="col-lg-2 col-md-2 col-sm-6 col-xs-6 generation-container">
-		<a [routerLink]="['', generation.id]" routerLinkActive='active' class="{{generation.id}}">{{generation.name}}</a>
-	</div>
-</div>
+<div *ngIf="generations" class="generations-list"><div *ngFor="let generation of generations" class="col-lg-2 col-md-2 col-sm-6 col-xs-6 generation-container"><a [routerLink]="['', generation.id]" routerLinkActive="active" class="{{generation.id}}">{{generation.name}}</a></div></div>

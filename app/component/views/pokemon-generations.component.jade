@@ -1,0 +1,3 @@
+div.generations-list(*ngIf="generations")
+	div.col-lg-2.col-md-2.col-sm-6.col-xs-6.generation-container(*ngFor="let generation of generations")
+		a([routerLink]="['', generation.id]",routerLinkActive='active', class='{{generation.id}}') {{generation.name}}

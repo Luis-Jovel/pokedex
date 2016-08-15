@@ -1,0 +1,33 @@
+div#loading(*ngIf='loading_pokemon || loading_species')
+	div.pokeball#normal
+	div.pokeball#great
+	div.pokeball#ultra
+	div.pokeball#master
+	div.pokeball#safari
+div.row.pokemon-details(*ngIf="pokemon")
+	div.col-lg-4.col-md-4.col-sm-12.col-xs-12.details-card
+		span \#{{pokemon.id}} 
+		label {{pokemon.name}}
+		p Types:
+		ul
+			li(*ngFor="let type of pokemon.types") {{type.type.name}}
+		div
+			div(*ngFor="let stat of pokemon.stats")
+				label {{stat.stat.name}}:
+				span #{' '}{{stat.base_stat}}
+	div.col-lg-8.col-md-8.col-sm-12.col-xs-12
+		div.pokemon-sprites
+			img#front.sprite.grow(src="{{pokemon.sprites.front_default}}",alt="front")
+			img#platform.sprite(src="assets/img/fight-platform.png",alt="") 
+		div(*ngIf="loading_species") Loading details...
+		div#panel(*ngIf="species")
+			div#panel-top
+				img.sprite(src="assets/img/panel-top.png",alt="")
+			div#panel-middle
+				img.sprite(src="assets/img/panel-middle.png",alt="")
+				p Wild {{pokemon.name}} appeared!
+				p {{species.flavor_text_entries[1].flavor_text}}
+			div#panel-bottom
+				img.sprite(src="assets/img/panel-bottom.png",alt="")
+div(*ngIf="species")
+	pokemon-evolutions([evolution_url]="species.evolution_chain.url")

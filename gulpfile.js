@@ -23,13 +23,22 @@ gulp.task('concat', function () {
 		'./bower_components/bootstrap/dist/css/bootstrap.min.css',
 		dist + 'css/*.css'
 		])
+	.pipe(errHandler("Error Concat"))
 	.pipe(plugins.concat('bundle.css'))
 	.pipe(gulp.dest('bundle'))
 });
 
-gulp.task('watch', ['stylus', 'concat'], function () {
+gulp.task('jade', function () {
+	gulp.src('./**/*.jade', {base: './'})
+	.pipe(errHandler("Error Jade"))
+	.pipe(plugins.jade())
+	.pipe(gulp.dest('./'))
+});
+
+gulp.task('watch', ['stylus', 'concat', 'jade'], function () {
 	gulp.watch(src + 'css/*.styl', ['stylus']);
 	gulp.watch(dist + 'css/*.css', ['concat']);
+	gulp.watch('./**/*.jade', ['jade']);
 });
 
 gulp.task('default', ['watch']);
